@@ -1,6 +1,6 @@
 #include "toolbar.h"
 #include "game.h"
-//#include "grid.h"
+#include "grid.h"
 //#include <string>
 using namespace std;
 //#include "CMUgraphicsLib\CMUgraphics.h"
@@ -12,12 +12,12 @@ toolbar::toolbar(game* pG)
 	live = 5;
 	score = 0;
 	level = 0;
-
+	
 	height = config.toolBarHeight;
 	width = config.windWidth;
 	this->pGame = pG;
 	window* pWind = pGame->getWind();
-
+	
 	//You can draw the tool bar icons in any way you want.
 
 	//First prepare List of images for each toolbar item
@@ -59,6 +59,7 @@ toolbar::toolbar(game* pG)
 	pWind->DrawString(config.GameStatusWidth, config.GameStatusHeight, "Lives:" + to_string(live));
 	pWind->DrawString(config.GameStatusWidth, config.GameStatusHeight - config.seprator, "Score:" + to_string(score));
 	pWind->DrawString(config.GameStatusWidth, config.GameStatusHeight - 2 * (config.seprator), "Level:" + to_string(level));
+	pWind->DrawString(config.GameStatusWidth, config.GameStatusHeight +  (config.seprator), "steps:" + to_string(pGame->countSteps()));
 }
 
 

@@ -59,7 +59,7 @@ void game::createGrid()
 	//create the grid
 	shapesGrid = new grid(gridUpperLeftPoint, config.windWidth, gridHeight, this);
 }
-
+int steps = 0;
 operation* game::createRequiredOperation(toolbarItem clickedItem)
 {
 	operation* op = nullptr;
@@ -77,8 +77,12 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 	case ITM_ROTATE:
 		op = new operMakeRotation(this);
 		break;
+	steps += 1;
+
 	case ITM_HINT:
 		op = new operDeleteThisShape(this);
+	steps += 1;
+
 		break;
 	case ITM_ROCKET:
 		op = new operAddRocket(this);
@@ -158,6 +162,12 @@ Levels* game::getLevel()
 	return lvl;
 }
 
+
+int game::countSteps() const
+{
+	return steps;
+}
+
 void game::setLevel(Levels level)
 {
 	lvl = new Levels(level);
@@ -212,6 +222,8 @@ void game::run()
 						pMove->moveStep(step);
 						pMove->Act();
 						stillMoving = true;
+						steps += 1;
+
 						break;
 					case 4: // Left
 						isItVertical = false;
@@ -219,6 +231,8 @@ void game::run()
 						pMove->moveStep(-step);
 						pMove->Act();
 						stillMoving = true;
+						steps += 1;
+
 						break;
 					case 6: // right
 						isItVertical = false;
@@ -226,6 +240,8 @@ void game::run()
 						pMove->moveStep(step);
 						pMove->Act();
 						stillMoving = true;
+						steps += 1;
+
 						break;
 					case 8: //up
 						isItVertical = true;
@@ -233,6 +249,8 @@ void game::run()
 						pMove->moveStep(-step);
 						pMove->Act();
 						stillMoving = true;
+						steps += 1;
+
 						break;
 					}
 

@@ -25,6 +25,7 @@ class game
 	grid* shapesGrid;
 	window* ExitWindow;
 	Levels* lvl;
+	int steps;
 
 public:
 	game();
@@ -44,6 +45,7 @@ public:
 	operation* createRequiredOperation(toolbarItem clickedItem);
 	Levels* getLevel();
 	void setLevel(Levels level);
+	int countSteps() const ;
 
 	void run();	//start the game
 
