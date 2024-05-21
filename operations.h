@@ -114,11 +114,11 @@ public:
 };
 
 
-class CallHint : public operation
-{
+class Hint : public operation {
 public:
-	CallHint(game* r_pGame);
+	Hint(game* r_pGame);
 	virtual void Act();
+
 };
 
 
