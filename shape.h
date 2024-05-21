@@ -53,9 +53,12 @@ struct point
 
 	void flip(point pnt)
 	{
-		int temp = y;
-		y = pnt.y;
-		pnt.y = temp;
+		x -= pnt.x;
+	y -= pnt.y;
+	y = -y;
+
+	x += pnt.x;
+	y += pnt.y;
 
 	}
 
