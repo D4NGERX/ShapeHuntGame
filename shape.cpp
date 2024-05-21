@@ -30,6 +30,11 @@ void shape::move(int step, bool isVertical)
 int shape::getRotationAngle() { return iRotationAngle; }
 int shape::getNumberOfResizeCalls() { return iResizeCalls; }
 
+void shape::setcolor(color color)
+{
+	fillColor = color;
+}
+
 //point* shape::getRefPoint() { return &RefPoint; }
 
 //void shape::move()
