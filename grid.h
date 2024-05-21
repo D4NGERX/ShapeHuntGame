@@ -38,6 +38,7 @@ public:
 	void resetShapeCount();
 	bool checkShapeList();
 	void save();
+	void Hint();
 };
 
 
