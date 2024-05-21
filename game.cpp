@@ -112,11 +112,10 @@ operation* game::createRequiredOperation(toolbarItem clickedItem)
 		break;
 	case ITM_EXIT:
 		op = new operExit(this);
-		game::printMessage("Would you Like to Save?    YES / NO ");
 		break;
 	}
 	case ITM_HNT:
-		op = new CallHint(this);
+		op = new Hint(this);
 		game::printMessage("You Clicked on 'Hint' Operation");
 		break;
 	case ITM_DEL:
@@ -251,7 +250,29 @@ void game::run()
 	{
 		pWind->WaitMouseClick(x, y);
 		
+
+		if (steps <= 0) {
+	printMessage("click y to try again, or n to exit");
+
+	char PressedKey;
+	keytype UserDesicion = pWind->WaitKeyPress(PressedKey);;
+	if (UserDesicion == ASCII)
+	{
+		if (PressedKey == 'y') {
+			// Refresh* jioasd;
+			// sdopjasid->Act()
+		}
+
+		else if (PressedKey == 'n') {
+			window* pEXIT = pGame->getWind();
+			grid* pGrid = pGame->getGrid();
+			pGrid->operExit();
+		}
+	}
+}
+
 		
+
 
 
 		if (y >= 0 && y < config.toolBarHeight)
